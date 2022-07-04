@@ -4,15 +4,18 @@ services:
         public: true
         arguments:
             - "@lightsaml.container.build"
+    LightSaml\Builder\Profile\Metadata\MetadataProfileBuilder: '@lightsaml.profile.metadata'
 
     lightsaml.profile.login_factory:
         class: LightSaml\Builder\Profile\WebBrowserSso\Sp\SsoSpSendAuthnRequestProfileBuilderFactory
         public: true
         arguments:
             - "@lightsaml.container.build"
+    LightSaml\Builder\Profile\WebBrowserSso\Sp\SsoSpSendAuthnRequestProfileBuilderFactory: '@lightsaml.profile.login_factory'
 
     lightsaml.profile.acs:
         class: LightSaml\Builder\Profile\WebBrowserSso\Sp\SsoSpReceiveResponseProfileBuilder
         public: true
         arguments:
             - "@lightsaml.container.build"
+    LightSaml\Builder\Profile\WebBrowserSso\Sp\SsoSpReceiveResponseProfileBuilder: '@lightsaml.profile.acs'
